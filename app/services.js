@@ -6,9 +6,11 @@ App.Services=(function(lng, app, undefined){
 		lng.Service.get(url, data, responseLogin, "json");
 	};
 	var responseLogin = function(response){
+		console.dir(response);
 		if(response.completo){
-			
 			lng.Router.section("principal");
+			app.Data.crearDataBase();
+			app.Data.insertUserDB(response.nombre_cliente, response.apellido_cliente, response.email_cliente, response.ci_cliente);
 			listarServicios();
 			cargarProductos();
 		}
@@ -20,7 +22,8 @@ App.Services=(function(lng, app, undefined){
 	};
 	/** Esta es la respuesta de la lista de Servicios **/
 	var responseListaServicios = function(response){
-		app.Views.listaServicios(response);
+		app.Data.cargarServiciosDB(response);
+		//app.Views.listaServicios(response);
 	};
 	/** Esta es la funcion para cargar los productos desde la base de datos */
 	var cargarProductos = function (){

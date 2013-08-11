@@ -9,8 +9,7 @@ var App = (function (lng, undefined){
     	version:'1.0',
     	resources: [
                 'static/asides/features.html'
-        ],
-        history: false
+        ]
     });
     return {
 

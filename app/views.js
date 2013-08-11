@@ -1,8 +1,8 @@
 App.Views =(function(lng, app, undefined){
 	var listarServicios = function(servicios){
-		var template ='<ul id="lista-clientes-ul">'+
+		var template ='<ul id="lista-clientes-ul" >'+
  				'{{#services}}'+
-    			'<li id="{{id_servicio}}">'+
+    			'<li id="{{id_servicio}}" data-icon="check">'+
 					'<strong>{{nombre_servicio}}</strong>'+          
     			'</li>'+
 			'{{/services}}</ul>';
