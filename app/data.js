@@ -9,7 +9,6 @@ App.Data =(function(lng, app, undefined){
 	var crearTablasBaseDatos = function(){
 		db.transaction(function (sql){
 			sql.executeSql('CREATE TABLE IF NOT EXISTS usuarios(id integer primary key autoincrement, nombre text, apellido_pat text, email text, ci_usr text)', [], insertCorrecto, insertError);
-			sql.executeSql('CREATE TABLE IF NOT EXISTS usuarios(id integer primary key autoincrement, nombre text, apellido_pat text, email text, ci_usr text)', [], insertCorrecto, insertError);
 		});
 	}
 	/** insertUserDB es un metodo encargado de registrar al usuario en la base de datos **/
@@ -34,7 +33,8 @@ App.Data =(function(lng, app, undefined){
 	/** Este es el metodo cuando se a ejecutado la consulta de manera correcta **/
 	var insertError = function(error){
 		console.log(error);
-	}
+	};
+
 	return{
 		crearDataBase : createDataBase,
 		insertUserDB : insertUsuario,
