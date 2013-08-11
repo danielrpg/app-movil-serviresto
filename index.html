@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SERVIRESTO</title>
+    <meta name="description" content="">
+    <meta name="author" content="ARGO SI @argo_sig">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">  
+    <!-- iPhone -->
+    <link href="images/icon-57.png" sizes="57x57" rel="apple-touch-icon">
+    <link href="images/startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <!-- iPhone (Retina) -->
+    <link href="images/icon-114.png" sizes="114x114" rel="apple-touch-icon">
+    <link href="images/startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPhone 5 -->
+    <link href="images/startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px)
+             and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+    <!-- iPad -->
+    <link href="images/icon-72.png" sizes="72x72" rel="apple-touch-icon">
+    <link href="images/startup-image-768x1004.png" media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: portrait)
+             and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <link href="images/startup-image-748x1024.png" media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: landscape)
+             and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+
+    <!-- iPad (Retina) -->
+    <link href="images/icon-144.png" sizes="144x144" rel="apple-touch-icon">
+    <link href="images/startup-image-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: portrait)
+             and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="images/startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: landscape)
+             and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+       <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/lungo.theme.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.css">
+        <!-- Lungo - Dependencies -->
+
+
+
+</head>
+
+<body class="app">
+  <!-- Esta es la pantalla principal -->
+    <section id="splash" data-transition="slide">
+        <article id="login-article" class="active indented splash">
+            <h1> SERVIRESTO </h1>
+            <h2> Ingrese los datos personales </h2>
+            <form>
+                <fieldset data-icon="pencil">
+                    <label>Correo : </label>
+                    <input type="email"  value="" id="email-login" />
+                </fieldset>
+                <fieldset data-icon="pencil">
+                    <label>CI: </label>
+                    <input type="password"  value="" id="ci-login" />
+                </fieldset>
+                <br>
+                <a href="#" class="button blue big" data-icon="user" data-label="Ingresa al sistema" id="login-sistema"></a>
+            </form>
+        </article>
+    </section>
+  <!-- Esta es la pantalla principal -->
+    <section id="principal" data-transition="slide" data-aside="features">
+        <header data-title="SERVIRESTO">
+            <nav > 
+                <a href="#" data-view-aside="features" data-icon="menu"></a>
+            </nav>
+            <nav class="on-right"> 
+                <a href="#" id="logout-sistem" data-router="section" data-icon="cancel"></a>
+            </nav>      
+        </header>
+        <article id="lista-productos-principal" class="active list indented scroll">
+        </article>
+        <footer>
+            <nav class="with-labels">
+                <a href="#account-section" data-router="section" data-icon="user" data-label="Cuenta" class="active"></a>
+            </nav>
+        </footer>
+    </section>
+  
+   <!--section id="account-section" data-transition="slide">
+        <header data-title="RESTO.si">
+            <nav class="right"> 
+                <a href="#" id="logout-sistem" data-router="section" data-icon="cancel"></a>
+            </nav>
+        </header>
+        <article id="account-article" class="active list indented scroll">
+            <ul>
+                <li class="cancel with-labels">
+                    <a href="#">
+                            <a href="#" class="button small red right" data-icon="refresh">
+                                Actualizar
+                            </a>
+                            <strong>Cuenta de Cliente</strong>
+                            <small> Datos de cliente</small>
+                    </a>
+                </li> 
+            </ul>
+        </article>
+        <footer>
+            <nav class="with-labels">
+                <a href="#principal" data-router="section" data-icon="home" data-label="Productos"></a>
+                <a href="#account-section" data-router="section" data-icon="user" data-label="Cuenta" class="current"></a>
+            </nav>
+        </footer>
+   </section>
+
+  <!-- Este es el aside -->
+ 
+
+    <!-- Esta es la dependencia  de los archivos -->
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/quojs/quo.debug.js"></script>
+    <script src="components/lungo/lungo.js"></script>
+    <script src="components/mustache/mustache.js"></script>   
+    <!-- Lungo - Sandbox App -->
+    <script src="app/app.js" ></script>
+    <script src="app/data.js"></script>
+    <script src="app/events.js"></script>
+    <script src="app/services.js"></script>
+    <script src="app/views.js"></script>
+</body>
+</html>
