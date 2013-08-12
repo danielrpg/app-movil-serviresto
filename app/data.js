@@ -9,6 +9,7 @@ App.Data =(function(lng, app, undefined){
 	var crearTablasBaseDatos = function(){
 		db.transaction(function (sql){
 			sql.executeSql('CREATE TABLE IF NOT EXISTS usuarios(id integer primary key autoincrement, nombre text, apellido_pat text, email text, ci_usr text)', [], insertCorrecto, insertError);
+			sql.executeSql('CREATE TABLE IF NOT EXISTS servicios(id integer primary key autoincrement, id_servicio int, codigo_servicio text, nombre_servicio text)', [], insertCorrecto, insertError);
 		});
 	}
 	/** insertUserDB es un metodo encargado de registrar al usuario en la base de datos **/
@@ -19,16 +20,23 @@ App.Data =(function(lng, app, undefined){
 	};
 	/** esta es la consulta en la que se inserta en la base de datos al usuario */
 	var cargarServiciosBaseDatos=function(servicios){
-		$.each(clientes.clientes, function(index, cliente){
+		$.each(servicios.services, function(index, servi){
 			db.transaction(function (sql){
-				sql.executeSql("INSERT INTO cliente(codigo_unico, nombre, ap_pat,ap_mat,empresa_trab,dir_cli,contacto,cargo,departamento,telf, interno, cel, correo, nit, razon)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[cliente.vent_cli_cod_unico, cliente.vent_cli_nombre, cliente.vent_cli_apellido_pat, cliente.vent_cli_apellido_mat, cliente.vent_cli_empresa_trab,cliente.vent_cli_direccion, cliente.vent_cli_persona_cont, cliente.vent_cli_cargo, cliente.vent_cli_departamento_cargo, cliente.vent_cli_telefono, cliente.vent_cli_interno, cliente.vent_cli_celular, cliente.vent_cli_correo, cliente.vent_cli_nit, cliente.vent_cli_razon_fact],insertCorrecto,insertError);
+				sql.executeSql("INSERT INTO servicios(id_servicio, codigo_servicio, nombre_servicio)VALUES(?,?,?)",[servi.id_servicio, servi.codigo_servicio, servi.nombre_servicio],insertCorrecto,insertError);
 			});
 		});
 		 
 	};
+
+	/** Metodo que lista los servicios desde la base de datos**/
+	var getListaServicios = function(){
+		db.transaction(function(sql){
+			sql.executeSql();
+		});
+	};
 	/** Este es el metodo cuando se a ejecutado la consulta de manera correcta **/
 	var insertCorrecto = function(){
-
+         
 	};
 	/** Este es el metodo cuando se a ejecutado la consulta de manera correcta **/
 	var insertError = function(error){
@@ -38,6 +46,7 @@ App.Data =(function(lng, app, undefined){
 	return{
 		crearDataBase : createDataBase,
 		insertUserDB : insertUsuario,
-		cargarServiciosDB : cargarServiciosBaseDatos
+		cargarServiciosDB : cargarServiciosBaseDatos,
+		getListaServicios : getListaServicios
 	}
 })(Lungo, App);

@@ -1,7 +1,7 @@
 App.Events = (function(lng, app, undefined){
     lng.dom('section#splash article#login-article form a').tap(function(evt){
         if($$('#email-login').val()==="" ){
-            Lungo.Notification.error(
+            lng.Notification.error(
                 "Error",                      //Title
                 "El campo Correo no puede estar vacio",     //Description
                 "remove",                     //Icon
@@ -9,7 +9,7 @@ App.Events = (function(lng, app, undefined){
                 afterNotification             //Callback function
             );
         }else if($$('#ci-login').val()===""){
-            Lungo.Notification.error(
+            lng.Notification.error(
                 "Error",                      //Title
                 "El Carnet de Identidad no puede estar vacio",     //Description
                 "remove",                     //Icon
@@ -17,7 +17,7 @@ App.Events = (function(lng, app, undefined){
                 afterNotification             //Callback function
             );
         }else{
-             Lungo.Notification.success(
+             lng.Notification.success(
                 "Correcto",                  //Title
                 "El Usuario es correcto",     //Description
                 "check",                    //Icon
@@ -28,11 +28,12 @@ App.Events = (function(lng, app, undefined){
     });
     /** Esta es la ejecucion del metodo que activa el login en service*/
     var afterNotificationLoginCorrect = function(){
+        lng.Notification.hide();
         app.Services.loginUsuario($$('#email-login').val(), $$('#ci-login').val());
     };
     var afterNotification = function(){
         //Do something
-        console.log('despues del error....');
+        //console.log('despues del error....');
     };
     return{
 
