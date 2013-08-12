@@ -31,7 +31,7 @@ App.Services=(function(lng, app, undefined){
 	/** Esta es la respuesta de la lista de Servicios **/
 	var responseListaServicios = function(response){
 		app.Data.cargarServiciosDB(response);
-		var servicios = app.Data.getListaServicios();
+		app.Data.getListaServicios();
 	};
 	/** Esta es la funcion para cargar los productos desde la base de datos */
 	var cargarProductos = function (){
@@ -40,7 +40,8 @@ App.Services=(function(lng, app, undefined){
 	};
 	/** Metodo que se ejecuta cuando se ha completado de leer desde el servicio */
 	var productosCompletos = function(response){
-		//console.log(response);
+		app.Data.cargarProductosDB(response);
+		app.Views.listarProductosXServicio();
 	};
 	var afterNotification = function(){
 		console.log('No existe el usuario');

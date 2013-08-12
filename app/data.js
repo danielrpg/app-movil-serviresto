@@ -10,6 +10,7 @@ App.Data =(function(lng, app, undefined){
 		db.transaction(function (sql){
 			sql.executeSql('CREATE TABLE IF NOT EXISTS usuarios(id integer primary key autoincrement, nombre text, apellido_pat text, email text, ci_usr text)', [], insertCorrecto, insertError);
 			sql.executeSql('CREATE TABLE IF NOT EXISTS servicios(id integer primary key autoincrement, id_servicio int, codigo_servicio text, nombre_servicio text)', [], insertCorrecto, insertError);
+			sql.executeSql('CREATE TABLE IF NOT EXISTS productos(id integer primary key autoincrement, id_producto int, id_servicio int, nombre_producto text, detalle_producto text, precio_producto)', [], insertCorrecto, insertError);
 		});
 	}
 	/** insertUserDB es un metodo encargado de registrar al usuario en la base de datos **/
@@ -44,6 +45,15 @@ App.Data =(function(lng, app, undefined){
 			}, insertError);
 		});
 	};
+	/** Este es el metodo que carga los productos en la base de datos web **/
+	var cargarProductosDB = function(productos){
+		console.dir(productos);
+		$.each(productos.productos, function(index, producto){
+			db.transaction(function (sql){
+				sql.executeSql("INSERT INTO productos(id_producto, id_servicio, nombre_producto, detalle_producto, precio_producto)VALUES(?,?,?,?,?)",[producto.id_articulo, producto.id_servicio, producto.nombre_servicio, producto.detalle_servicio, producto.precio_venta_articulo],insertCorrecto,insertError);
+			});
+		});
+	};
 	/** Este es el metodo cuando se a ejecutado la consulta de manera correcta **/
 	var insertCorrecto = function(){
          
@@ -52,11 +62,11 @@ App.Data =(function(lng, app, undefined){
 	var insertError = function(error){
 		console.log(error);
 	};
-
 	return{
 		crearDataBase : createDataBase,
 		insertUserDB : insertUsuario,
 		cargarServiciosDB : cargarServiciosBaseDatos,
-		getListaServicios : getListaServicios
+		getListaServicios : getListaServicios,
+		cargarProductosDB : cargarProductosDB
 	}
 })(Lungo, App);
