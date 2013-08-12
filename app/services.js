@@ -32,7 +32,6 @@ App.Services=(function(lng, app, undefined){
 	var responseListaServicios = function(response){
 		app.Data.cargarServiciosDB(response);
 		var servicios = app.Data.getListaServicios();
-		app.Views.listaServicios();
 	};
 	/** Esta es la funcion para cargar los productos desde la base de datos */
 	var cargarProductos = function (){
