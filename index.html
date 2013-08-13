@@ -51,21 +51,20 @@
 <body class="app">
   <!-- Esta es la pantalla principal -->
     <section id="splash" data-transition="slide">
-        <article id="login-article" class="active indented splash">
-            <h1> SERVIRESTO </h1>
-            <h2> Ingrese los datos personales </h2>
+        <article id="login-article" class="active splash">
+            <img src="http://cdn.tapquo.com/lungo/logo.png" class="logo"/>
             <form>
-                <fieldset data-icon="pencil">
-                    <label>Correo : </label>
-                    <input type="email"  value="" id="email-login" />
+                <fieldset class="radius-top" data-icon="user">
+                   <input type="email" placeholder="Email" id="email-login">
                 </fieldset>
-                <fieldset data-icon="pencil">
-                    <label>CI: </label>
-                    <input type="password"  value="" id="ci-login" />
+                <fieldset class="radius-bottom shadow" data-icon="lock">
+                    <input type="password" placeholder="Carnet de Identidad" id="ci-login">
                 </fieldset>
                 <br>
-                <a href="#" class="button blue big" data-icon="user" data-label="Ingresa al sistema" id="login-sistema"></a>
+                <button class="anchor" data-icon="lock" data-icon="user" data-label="Ingresar"></button>
+                <!--a href="#" class="button blue big" data-icon="user" data-label="Ingresa al sistema" id="login-sistema"></a-->
             </form>
+            <span class="copyright text thin">Copyright (C) 2013 - <span class="text bold">D&D SOFT</span></span>
         </article>
     </section>
   <!-- Esta es la pantalla principal -->

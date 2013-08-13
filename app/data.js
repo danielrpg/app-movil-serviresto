@@ -54,6 +54,23 @@ App.Data =(function(lng, app, undefined){
 			});
 		});
 	};
+
+	/** Metodo que se encarga de listar los productos x servicio **/
+	var listarProductoXServicio = function(){
+		db.transaction(function(sql){
+			sql.executeSql('SELECT * FROM servicios', [], function (sql, results) {
+				var len = results.rows.length, i;
+				var json_clientes ="";
+				var data = [];
+				for (i = 0; i < len; i++){
+      				var servicio = {"id_servicio":results.rows.item(i).id_servicio,"codigo_servicio":results.rows.item(i).codigo_servicio, "nombre_servicio":results.rows.item(i).nombre_servicio};
+      				data.push(servicio);
+   				}
+   				json_servicios=JSON.stringify({'servicios':data});
+   				app.Views.showListaServicios($.parseJSON(json_servicios));
+			}, insertError);
+		});	
+	};
 	/** Este es el metodo cuando se a ejecutado la consulta de manera correcta **/
 	var insertCorrecto = function(){
          
@@ -67,6 +84,7 @@ App.Data =(function(lng, app, undefined){
 		insertUserDB : insertUsuario,
 		cargarServiciosDB : cargarServiciosBaseDatos,
 		getListaServicios : getListaServicios,
-		cargarProductosDB : cargarProductosDB
+		cargarProductosDB : cargarProductosDB,
+		listarProductoXServicio : listarProductoXServicio
 	}
 })(Lungo, App);

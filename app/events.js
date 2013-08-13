@@ -1,5 +1,5 @@
 App.Events = (function(lng, app, undefined){
-    lng.dom('section#splash article#login-article form a').tap(function(evt){
+    lng.dom('section#splash article#login-article form button').tap(function(evt){
         if($$('#email-login').val()==="" ){
             lng.Notification.error(
                 "Error",                      //Title

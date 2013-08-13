@@ -41,7 +41,8 @@ App.Services=(function(lng, app, undefined){
 	/** Metodo que se ejecuta cuando se ha completado de leer desde el servicio */
 	var productosCompletos = function(response){
 		app.Data.cargarProductosDB(response);
-		app.Views.listarProductosXServicio();
+		app.Data.listarProductoXServicio();
+		//app.Views.listarProductosXServicio();
 	};
 	var afterNotification = function(){
 		console.log('No existe el usuario');
